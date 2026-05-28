@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* ─── Radius ──────────────────────────────────────────── */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* ─── Colors ──────────────────────────────────────────── */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* ─── Light Mode ──────────────────────────────────────────────────────────── */
+:root {
+  --radius: 0.5rem;
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.09 0 0);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.09 0 0);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.09 0 0);
+
+  --primary: oklch(0.09 0 0);
+  --primary-foreground: oklch(0.98 0 0);
+
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.09 0 0);
+
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.09 0 0);
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.09 0 0);
+}
+
+/* ─── Dark Mode ───────────────────────────────────────────────────────────── */
+.dark {
+  --background: oklch(0.09 0 0);
+  --foreground: oklch(0.98 0 0);
+
+  --card: oklch(0.12 0 0);
+  --card-foreground: oklch(0.98 0 0);
+
+  --popover: oklch(0.12 0 0);
+  --popover-foreground: oklch(0.98 0 0);
+
+  --primary: oklch(0.98 0 0);
+  --primary-foreground: oklch(0.09 0 0);
+
+  --secondary: oklch(0.17 0 0);
+  --secondary-foreground: oklch(0.98 0 0);
+
+  --muted: oklch(0.17 0 0);
+  --muted-foreground: oklch(0.6 0 0);
+
+  --accent: oklch(0.17 0 0);
+  --accent-foreground: oklch(0.98 0 0);
+
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.98 0 0);
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+* {
+  border-color: var(--border);
+}
+
+body {
+  font-family: 'Inter', sans-serif !important;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 9999px;
+}
+
+/* ─── System-wide Dark Mode Custom Overrides ──────────────────────────────── */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #121212 !important;
+  }
+  .bg-\[\#282828\] {
+    background-color: #383838 !important;
+  }
+  .text-white {
+    color: #ffffff !important;
+  }
+}
+
+/* ─── Premium Visual Depth Overrides ─────────────────────────────────────── */
+.shadow-lg {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.glass {
+  backdrop-filter: blur(5px) !important;
+  border-radius: 12px !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
